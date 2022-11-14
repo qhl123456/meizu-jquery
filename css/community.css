@@ -1,0 +1,585 @@
+.user-menu,
+nav {
+  background-color: #fff;
+}
+.header,
+.header-left,
+.nav,
+.user a,
+nav .menu {
+  display: flex;
+}
+header {
+  width: 100%;
+  height: 40px;
+  background-color: #484848;
+}
+.header {
+  margin: 0 auto;
+  width: 1040px;
+  height: 36px;
+  line-height: 36px;
+  justify-content: space-between;
+}
+.header-left,
+.user a {
+  justify-content: space-around;
+}
+.header-left,
+.post-footer,
+.user a {
+  align-items: center;
+}
+.header-left {
+  height: 100%;
+  width: 300px;
+}
+.nav,
+.post-footer {
+  justify-content: space-between;
+}
+.nav,
+nav {
+  height: 82px;
+}
+.header-left a {
+  color: #aaa;
+  font-size: 14px;
+}
+.header-right {
+  color: #aaa;
+}
+nav {
+  width: 100%;
+  position: relative;
+}
+.nav {
+  margin-left: 228px;
+  width: 720px;
+  line-height: 82px;
+}
+.user,
+nav .search {
+  line-height: 36px;
+  position: absolute;
+}
+.logo span {
+  font-size: 20px;
+  color: #333;
+  vertical-align: middle;
+}
+.user,
+.user a span {
+  font-size: 36px;
+}
+nav .menu {
+  width: 440px;
+  height: 100%;
+  justify-content: space-evenly;
+}
+nav .menu a:hover {
+  color: #008cff;
+}
+nav .search {
+  top: 25px;
+  right: 310px;
+  border: 1px solid #ccc;
+  height: 36px;
+}
+nav .search input {
+  width: 170px;
+  height: 26px;
+  line-height: 26px;
+  border: none;
+  color: #999;
+  background: 0 0;
+  outline: 0;
+  padding-left: 10px;
+}
+nav .search button {
+  position: absolute;
+  right: 4px;
+  border: none;
+  background: #fff;
+  top: 10px;
+}
+nav .search button img {
+  vertical-align: baseline;
+}
+.user {
+  right: 245px;
+  top: 25px;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+}
+.user a {
+  width: 100%;
+  height: 100%;
+}
+.login,
+.notlogin,
+.user-menu {
+  display: none;
+}
+.user-menu {
+  position: absolute;
+  right: 215px;
+  top: 70px;
+  padding: 10px;
+  width: 80px;
+  text-align: center;
+  line-height: normal;
+  box-shadow: 0 0 4px #ccc;
+  border-radius: 3px;
+  z-index: 99;
+}
+.user-menu .arrow {
+  position: absolute;
+  left: 45px;
+  top: -6px;
+  width: 12px;
+  height: 6px;
+  background: url(../img/common/square.png) no-repeat;
+  z-index: 99;
+}
+.post-author .post-mess-menu span,
+.side-bar .side-item i,
+i.vip {
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.user-menu li {
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+.user-menu li a {
+  font-size: 12px;
+  color: #a2a2a2;
+}
+.user-menu li a:hover {
+  color: #008cff;
+}
+.login-mine {
+  border-top: 1px solid #ccc;
+}
+.user-menu li a img {
+  width: 22px;
+  height: 22px;
+}
+.post-main {
+  margin: 0 auto;
+  width: 1040px;
+  min-height: 500px;
+  background-color: #f2f2f2;
+}
+.post-left-side {
+  float: left;
+  width: 700px;
+}
+.post-main .post-container {
+  position: relative;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 0 4px #ececec;
+  box-sizing: border-box;
+}
+.side-bar {
+  position: fixed;
+  top: 366px;
+  left: 50%;
+  margin-left: -590px;
+  width: 48px;
+  overflow: hidden;
+  background-color: #fff;
+}
+.side-bar .side-item i {
+  background-size: 100%;
+}
+.side-bar .side-item i,
+.side-bar .side-item span {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  vertical-align: middle;
+}
+.side-bar .side-item span {
+  position: absolute;
+  left: 0;
+  display: none;
+  text-align: center;
+  line-height: 48px;
+  color: #fff;
+  font-size: 12px;
+  background-color: #008cff;
+}
+.side-bar .side-item .icon-support {
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/support.73e8a987.svg);
+}
+.side-bar .side-item .icon-comment {
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/comment.e2c5d384.svg);
+}
+.side-bar .side-item .icon-collect {
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/collect.bf983e72.svg);
+}
+.side-bar .side-item .icon-back {
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/back.0bbc447b.svg);
+}
+.post-top {
+  padding-top: 21px;
+}
+.bread-crumb {
+  height: 20px;
+  line-height: 20px;
+  color: #bdbdbd;
+}
+.bread-crumb .first {
+  margin-left: 0;
+}
+.bread-crumb a {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 14px;
+  color: #999;
+}
+.post-main .post-container .post-title {
+  padding: 24px 0 12px;
+  font-size: 26px;
+  color: #222;
+}
+.post-author .post-mess,
+.post-author .post-mess-info {
+  font-size: 14px;
+  color: #bdbdbd;
+}
+.post-author {
+  margin-bottom: 20px;
+}
+.post-author .post-author-info {
+  position: relative;
+  height: 45px;
+}
+.post-author .post-author-info dt {
+  position: relative;
+  float: left;
+  margin-right: 20px;
+}
+.post-author .post-author-info dt img {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.post-author .post-author-name a {
+  color: #222;
+}
+i.vip {
+  display: inline-block;
+  margin-left: 3px;
+  width: 20px;
+  height: 20px;
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/verification.24dd9532.png);
+  background-size: 100%;
+  vertical-align: middle;
+}
+.post-author .post-author-name span {
+  padding-left: 12px;
+  font-size: 14px;
+  color: #bdbdbd;
+  font-weight: 400;
+}
+.post-author .post-mess .post-date {
+  margin-left: 10px;
+}
+.post-author .post-mess-menu {
+  position: absolute;
+  height: 20px;
+  top: -3px;
+  right: 0;
+  z-index: 99;
+}
+#replyEditorWrapper,
+.content,
+.content-outter,
+.post-author .post-mess-menu-item {
+  position: relative;
+}
+.post-author .post-mess-menu-item {
+  display: inline-block;
+  margin-left: 21px;
+}
+.post-author .post-mess-menu span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-size: 100%;
+}
+.post-author .post-mess-menu .share-ico {
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/share.2246f9b7.png);
+}
+.post-author .post-mess-menu .collect-ico.on,
+.post-author .post-mess-menu .collect-ico:hover {
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/collect-active.4057ee94.png);
+}
+.post-author .post-mess-menu .collect-ico {
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/collect.ed126d0c.png);
+}
+.post-author .post-mess-menu .action-ico {
+  background-image: url(../img/common/action.png);
+}
+.post-author .post-mess-info {
+  position: absolute;
+  bottom: -3px;
+  right: 0;
+}
+.rate-btn {
+  cursor: pointer;
+}
+.post-author .post-mess-info .post-mess-value {
+  display: inline-block;
+  padding: 0 4px 0 0;
+  margin-right: 10px;
+}
+.post-author .post-mess-info .post-mess-value.last {
+  margin-right: 0;
+}
+.user-content {
+  font-size: 16px;
+  line-height: 30px;
+  color: #515151;
+}
+.pstatus {
+  color: #bdbdbd;
+  font-size: 14px;
+}
+.post-main .content-imgs {
+  margin-top: 15px;
+  width: 100%;
+}
+.post-main .post-right-side {
+  float: right;
+  padding: 23px 20px 15px;
+  width: 276px;
+  -webkit-box-shadow: 0 0 4px #ececec;
+  box-shadow: 0 0 4px #ececec;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+}
+.author-info {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.author-info-avatar {
+  height: 72px;
+  margin-bottom: 12px;
+}
+.author-info-avatar img {
+  display: inline-block;
+  width: 72px;
+  height: 72px;
+  border-radius: 36px;
+}
+.author-info-name a {
+  color: #222;
+}
+.author-info i.vip {
+  margin-left: 0;
+}
+.author-info-level {
+  margin-bottom: 3px;
+  font-size: 14px;
+  color: #bdbdbd;
+}
+.author-info-care a {
+  display: inline-block;
+  width: 57px;
+  height: 20px;
+  line-height: 20px;
+  color: #fff;
+  background-color: #008cff;
+  border: 1px solid #008cff;
+  font-size: 12px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+}
+.dynamic-item,
+.dynamic-title {
+  border-bottom: 1px solid #f5f5f5;
+}
+.dynamic-title {
+  height: 47px;
+  line-height: 60px;
+  color: #222;
+  font-size: 18px;
+  overflow: hidden;
+}
+.dynamic-title a {
+  float: right;
+  font-size: 12px;
+  color: #bdbdbd;
+}
+.dynamic-item {
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+.dynamic-item .name {
+  margin-bottom: 3px;
+}
+.dynamic-item .name a {
+  font-size: 14px;
+  color: #222;
+}
+.dynamic-info {
+  margin-bottom: 9px;
+  font-size: 12px;
+  color: #bdbdbd;
+}
+.dynamic-content {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #222;
+}
+.dynamic-img-share {
+  height: 60px;
+  background: rgba(34, 34, 34, 0.03);
+  overflow: hidden;
+}
+.dynamic-img-share .left {
+  float: left;
+  margin: 3px 9px 3px 3px;
+  width: 54px;
+  height: 54px;
+  background: #fff;
+}
+.dynamic-img-share .left img,
+.post-footer .ico-item i {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+}
+.dynamic-img-share .left img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.dynamic-img-share .right {
+  float: left;
+  padding-top: 13px;
+  width: 200px;
+  height: 38px;
+  line-height: 1.4;
+  font-size: 14px;
+  color: #222;
+  overflow: hidden;
+}
+.post-footer {
+  display: flex;
+  margin: 15px auto;
+}
+.post-footer .hot-people {
+  color: #bdbdbd;
+  font-size: 14px;
+}
+.post-footer .hot-people a {
+  color: #bdbdbd;
+}
+.post-footer .ico-item.support {
+  margin-right: 20px;
+}
+.post-footer .ico-item {
+  display: inline-block;
+  text-align: center;
+}
+.post-footer .ico-item .support-ico {
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/support.3d629f42.png);
+}
+.post-footer .ico-item.support.on .support-ico {
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/support-active.0dd90ead.png);
+}
+.post-footer .ico-item.support.on span {
+  color: #fbc106;
+}
+.post-footer .ico-item i {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+.post-footer .ico-item span {
+  display: inline-block;
+  padding-left: 5px;
+  height: 20px;
+  line-height: 20px;
+  color: #bdbdbd;
+  vertical-align: middle;
+}
+.post-footer .ico-item .against-ico {
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/against.433faef9.png);
+}
+.editor {
+  margin: 20px auto;
+  width: 658px;
+  box-sizing: border-box;
+}
+.content {
+  padding: 9px 12px 40px;
+  min-height: 50px;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.03);
+}
+.placeholder {
+  position: absolute;
+  left: 0;
+  top: 9px;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #bdbdbd;
+  border: none;
+  background-color: transparent;
+  outline: 0;
+  width: 600px;
+  height: 70px;
+}
+.emoji,
+.img-uploader,
+.reply-btn {
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  cursor: pointer;
+}
+.reply-btn {
+  position: absolute;
+  right: 6px;
+  bottom: 14px;
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/reply.d8fca96d.png);
+}
+.emoji-wrapper {
+  position: absolute;
+  right: 30px;
+  bottom: 14px;
+}
+.emoji {
+  position: relative;
+  float: right;
+  margin-right: 18px;
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/emoji.d5416308.png);
+}
+.reply-uploader {
+  position: absolute;
+  right: 90px;
+  bottom: 14px;
+  font-size: 0;
+}
+.img-uploader {
+  background-image: url(https://bbs.res.meizu.com/bbs_thread/img/img.5c3a78cf.png);
+}
+.side-item:hover {
+  cursor: pointer;
+}

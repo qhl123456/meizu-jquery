@@ -1,0 +1,32 @@
+{
+  "links": [
+    {
+      "id": 0,
+      "img": "../img/index/links/0.jpg",
+      "title": "2021 魅友节",
+      "desc": "无魅友 不魅族",
+      "typeID": 5
+    },
+    {
+      "id": 1,
+      "img": "../img/index/links/1.jpg",
+      "title": "魅族18",
+      "desc": "立省1000 + 12 期免息 + 赠手机壳",
+      "typeID": 5
+    },
+    {
+      "id": 2,
+      "img": "../img/index/links/2.jpg",
+      "title": "渴物众筹 ",
+      "desc": "现已开启",
+      "typeID": 5
+    },
+    {
+      "id": 3,
+      "img": "../img/index/links/3.jpg",
+      "title": "mCycle",
+      "desc": "以旧换新",
+      "typeID": 5
+    }
+  ]
+}

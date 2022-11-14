@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/details.css" />
+    <link rel="stylesheet" href="font/iconfont.css" />
+    <script src="js/jQuery.js"></script>
+    <script src="./js/detail.js"></script>
+  </head>
+
+  <body>
+    <div id="header-wrap"></div>
+    <div id="page-main">
+      <!-- 参数区域 -->
+      <div id="fast-nav">
+        <div class="fast-nav-container">
+          <span class="_name"></span>
+          <ul class="_list">
+            <li class="_item"><a href="javascript:;">概述</a></li>
+            <li class="_item"><a href="javascript:;">参数</a></li>
+            <li class="_item"><a href="javascript:;">换机指引</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!--  购物-->
+      <div id="main-container">
+        <!-- 轮播图 -->
+
+        <div id="goodsBanner">
+          <button id="btn-previous"></button>
+          <button id="btn-next"></button>
+          <span></span>
+          <ul class="goodsBanner-ul"></ul>
+          <div id="mask"></div>
+        </div>
+
+        <!-- 放大镜 -->
+        <div id="big-box"></div>
+
+        <!-- 参数区 -->
+        <div id="product" class="clear">
+          <!-- 商品名称 -->
+          <div class="prod-hd">
+            <h1></h1>
+            <div class="prod-hd-info">
+              <em></em>
+              <span></span>
+            </div>
+          </div>
+          <!-- 价格 -->
+          <div class="prod-sell">
+            <div class="prod-sell-price">
+              <span class="newPrice"></span>
+              <span class="date"></span>
+              <em class="oldPrice"></em>
+            </div>
+            <!-- 优惠券 -->
+            <div class="prod-sell-coupon prod-sell-item">
+              <span class="_coupon">优惠券</span>
+              <em>满3699减100</em>
+              <a href="">更多</a>
+            </div>
+          </div>
+          <!-- 配送服务 -->
+          <div class="prod-service">
+            <div class="prod-service-suda clear">
+              <dt class="prod-title">配送到</dt>
+              <div class="site-selector">陕西省 西安市</div>
+            </div>
+          </div>
+          <!-- 颜色选项 -->
+          <div class="prod-color">
+            <dt class="prod-title">颜色</dt>
+            <div class="prod-color-choice"></div>
+          </div>
+          <!--  花呗分期-->
+          <div class="prod-huabei clear">
+            <div class="prod-title">花呗分期</div>
+            <dd class="prod-option">
+              <a href="javascript:;" class="prop">
+                <p class="huabei-stages"></p>
+                <span></span>
+              </a>
+              <a href="javascript:;" class="prop">
+                <p class="huabei-stages"></p>
+                <span></span>
+              </a>
+              <a href="javascript:;" class="prop">
+                <p class="huabei-stages"></p>
+                <span></span>
+              </a>
+            </dd>
+          </div>
+          <!-- 选择数量 -->
+          <div class="prod-buy clear">
+            <div class="prod-title">选择数量</div>
+            <div class="prod-buy-control">
+              <a href="javascript:;" class="sub">-</a>
+              <input type="text" value="1" />
+              <a href="javascript:;" class="add">+</a>
+            </div>
+          </div>
+          <!-- 立即购买 -->
+          <div class="prod-buy-add clear">
+            <span class="newPrice"></span>
+            <!-- 选择的商品 -->
+            <div class="choice">
+              <span class="_name"></span>
+              <span class="_color"></span>
+              <span class="_way"></span>
+              <span class="_nums"></span>
+            </div>
+            <a href="javascript:;" class="tobuy goBuy">立即购买</a>
+            <a href="javascript:;" class="addcart">加入购物车</a>
+            <a href="javascript:;" id="noGoods">暂时无货</a>
+          </div>
+          <!-- 分期小图标 -->
+          <div class="prod-service-item clear">
+            <dd>
+              <span><i class="iconfont">&#xe610;</i> 花呗分期</span>
+              <span><i class="iconfont">&#xe610;</i> 顺丰发货</span>
+              <span><i class="iconfont">&#xe610;</i> 以旧换新</span>
+              <span><i class="iconfont">&#xe610;</i> 七天无理由退货</span>
+            </dd>
+          </div>
+        </div>
+      </div>
+
+      <!-- 商品详情 -->
+      <div id="goods-detail"></div>
+    </div>
+    <!-- 视频 -->
+    <div class="video">
+      <div class="close"></div>
+      <video src="./img/index/video/0.mp4" autoplay muted controls></video>
+    </div>
+    <!-- 返回顶部 -->
+    <div class="aside">
+      <div class="message"></div>
+      <div class="backTop"></div>
+    </div>
+    <!-- 选择的物品 -->
+    <div id="choice">
+      <img src="" />
+      <div class="choice"></div>
+      <a href="javascript:;" class="buy goBuy">立即购买</a>
+    </div>
+    <!-- 加入购物车 -->
+    <div id="cart">
+      <div class="close"></div>
+      <p></p>
+      <a href="cart.html" class="compute">去购物车结算</a>
+    </div>
+    <div id="page-footer"></div>
+  </body>
+</html>
+
+<script>
+  $("#header-wrap").load("header.html");
+  $("#page-footer").load("footer.html");
+</script>
+<script>
+  $(function () {
+    // 获取url中的id
+    function GetQueryString(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) return unescape(r[2]);
+      return null;
+    }
+    let id = GetQueryString("goodsId");
+    // 根据商品id发起请求，拿到该id所有数据
+    $.ajax({
+      url: "./getGoodsInfo.php",
+      method: "get",
+      data: { goodsId: id },
+      success(res) {
+        let data = JSON.parse(res);
+        showValue(data);
+      },
+    });
+    function showValue(res) {
+      // 将在线地址传给banner
+      $("title").html(`${res.goodsName}-魅族商城`);
+      let bannerImgs = res.goodsBanner.split(" ");
+      for (let i = 0; i < bannerImgs.length; i++) {
+        let lis = $("<li></li>")
+          .addClass("goodsBanner-li")
+          .appendTo(".goodsBanner-ul");
+      }
+      let desc = res.goodsDesc.split("】");
+      $(".prod-hd >h1").html(res.goodsName);
+      $(".prod-hd .prod-hd-info>em").html(`${res.goodsDesc.split("】")[0]}】`);
+      $(".prod-hd .prod-hd-info>span").html(`${res.goodsDesc.split("】")[1]}`);
+      $(" .newPrice").html(`￥${res.goodsPrice}`);
+      $(".prod-sell-price .date").html(
+        `或将低至￥${(res.goodsPrice / 12).toFixed(2)}x12期`
+      );
+      // 判断是否有旧价格
+      if (res.goodsOldPrice) {
+        $(".prod-sell-price .oldPrice").show();
+        $(".prod-sell-price .oldPrice").html(`￥${res.goodsOldPrice}`);
+      }
+      // 判断是否有颜色选项
+      if (res.goodsColor) {
+        $(".prod-color").show();
+        let color = res.goodsColor.split(" ");
+        for (let i = 0; i < color.length; i++) {
+          let divs = $("<div></div>")
+            .addClass("goods-color")
+            .appendTo(".prod-color-choice")
+            .html(`${color[i]}`);
+        }
+        $(".prod-color-choice").children("div").eq(0).addClass("checked");
+      }
+
+      // 商品名称
+      $("._name").html(res.goodsName);
+
+      $(".goods-color").click(function () {
+        $(this).addClass("checked").siblings().removeClass("checked");
+      });
+      // 花呗分期手续费计算
+      $(".prod-option ")
+        .children("a")
+        .eq(0)
+        .children("span")
+        .html(`含手续费￥${(res.goodsPrice * 0.023).toFixed(2)}/期`);
+      $(".prod-option ")
+        .children("a")
+        .eq(0)
+        .children("p")
+        .html(`￥${(res.goodsPrice / 3).toFixed(2)}X3期`);
+      $(".prod-option ")
+        .children("a")
+        .eq(1)
+        .children("span")
+        .html(`含手续费￥${(res.goodsPrice * 0.045).toFixed(2)}期`);
+      $(".prod-option ")
+        .children("a")
+        .eq(1)
+        .children("p")
+        .html(`￥${(res.goodsPrice / 6).toFixed(2)}X6期`);
+      $(".prod-option ")
+        .children("a")
+        .eq(2)
+        .children("span")
+        .html(`含手续费￥${(res.goodsPrice * 0.075).toFixed(2)}期`);
+      $(".prod-option ")
+        .children("a")
+        .eq(2)
+        .children("p")
+        .html(`￥${(res.goodsPrice / 12).toFixed(2)}X12期`);
+      //花呗分期点击事件
+      $(".prop").click(function () {
+        if ($(this).css("border-color") == "rgb(0, 140, 255)") {
+          $(this).css({
+            borderColor: "#bfbfbf",
+          });
+        } else {
+          $(this)
+            .css({
+              borderColor: "#008cff",
+            })
+            .siblings()
+            .css({
+              borderColor: "#bfbfbf",
+            });
+        }
+      });
+      // 判断是否有货
+      if (res.isHas == "false") {
+        $(".tobuy").hide();
+        $(".addcart").hide();
+        $("#noGoods").show();
+      }
+      // top的选择信息
+      $("#choice>.newPrice").html(res.goodsPrice);
+      // 轮播图+放大镜
+      class Banner {
+        constructor(box, lis, urlImg, mask, bigBox) {
+          this.index = 0;
+          this.mask = mask;
+          this.bigBox = bigBox;
+          this.urlImg = urlImg;
+          box.css({
+            backgroundImage: `url(${this.urlImg[this.index]})`,
+          });
+          bigBox.css({
+            backgroundImage: `url(${this.urlImg[this.index]})`,
+          });
+          lis
+            .eq(this.index)
+            .css({ backgroundColor: "#008cff" })
+            .siblings()
+            .css({
+              backgroundColor: "#666",
+            });
+          this.box = box;
+          this.lis = lis;
+          this.clickLis();
+          this.clickBox();
+          this.eventBind();
+        }
+        // 设置背景图片
+        setImg() {
+          this.box.css({
+            backgroundImage: `url(${this.urlImg[this.index]})`,
+          });
+          this.bigBox.css({
+            backgroundImage: `url(${this.urlImg[this.index]})`,
+          });
+        }
+        // 设置li背景颜色
+        setLiBgc() {
+          for (let i = 0; i < this.urlImg.length; i++) {
+            // 当前的lis换颜色
+            if (i == this.index) {
+              this.lis.eq(i).css({ backgroundColor: "#008cff" });
+            } else {
+              this.lis.eq(i).css({ backgroundColor: "#666" });
+            }
+          }
+        }
+        // lis的点击事件
+        clickLis() {
+          for (let i = 0; i < this.urlImg.length; i++) {
+            this.lis[i].onclick = () => {
+              this.index = i;
+              this.setLiBgc();
+              this.setImg();
+            };
+          }
+        }
+        // 点击右侧箭头，切换图片
+        next() {
+          this.index++;
+          if (this.index == this.urlImg.length) {
+            this.index = 0;
+          }
+          this.setImg();
+          this.setLiBgc();
+        }
+        // 点击左侧箭头，切换图片
+        pre() {
+          this.index--;
+          if (this.index == -1) {
+            this.index = this.urlImg.length - 1;
+          }
+          this.setImg();
+          this.setLiBgc();
+        }
+        // 点击事件
+        clickBox() {
+          // 获取元素
+          let right = document.getElementById("btn-next");
+          right.onclick = () => {
+            this.next();
+          };
+          let left = document.getElementById("btn-previous");
+          left.onclick = () => {
+            this.pre();
+          };
+        }
+        // 鼠标划入
+        mouseover() {
+          this.box.mouseover(() => {
+            this.bigBox[0].style.display = "block";
+            this.mask[0].style.display = "block";
+          });
+        }
+        mouseout() {
+          this.box.mouseout(() => {
+            this.bigBox[0].style.display = "none";
+            this.mask[0].style.display = "none";
+          });
+        }
+        mousemove() {
+          this.box[0].onmousemove = (evt) => {
+            let e = evt || event;
+            let left =
+              e.pageX - this.box[0].offsetLeft - this.mask[0].offsetWidth / 2;
+            let top =
+              e.pageY - this.box[0].offsetTop - this.mask[0].offsetHeight / 2;
+            let moveX =
+              (this.bigBox[0].offsetWidth * left) / this.mask[0].offsetWidth;
+            let moveY =
+              (this.bigBox[0].offsetHeight * top) / this.mask[0].offsetHeight;
+            if (left < 0) {
+              left = 0;
+            }
+            if (top < 0) {
+              top = 0;
+            }
+            let maxLeft = this.box[0].offsetWidth - this.mask[0].offsetWidth;
+            let maxTop = this.box[0].offsetHeight - this.mask[0].offsetHeight;
+            if (left > maxLeft) {
+              left = maxLeft;
+            }
+            if (top > maxTop) {
+              top = maxTop;
+            }
+            this.mask[0].style.left = left + "px";
+            this.mask[0].style.top = top + "px";
+            this.bigBox[0].style.backgroundPositionX = -moveX + "px";
+            this.bigBox[0].style.backgroundPositionY = -moveY + "px";
+          };
+        }
+        eventBind() {
+          this.mouseout();
+          this.mouseover();
+          this.mousemove();
+        }
+      }
+      // 将轮播图数据传进去
+      new Banner(
+        $("#goodsBanner"),
+        $(".goodsBanner-li"),
+        bannerImgs,
+        $("#mask"),
+        $("#big-box")
+      );
+      // 选择货物
+      $(".choice").html(
+        `已选：<span class="_name">${res.goodsName}</span>
+              <span class="_color">${res.goodsColor.split(" ")[0]}</span>
+              <span class="_way">全款</span>
+              <span class="_nums">${$(
+                ".prod-buy-control> input"
+              ).val()}件</span>`
+      );
+      $("#choice .choice").html(
+        `已选：<span class="_name">${res.goodsName}</span>
+              <span class="_color">${res.goodsColor.split(" ")[0]}</span>
+              <span class="_way">全款</span>
+              <span class="_nums">${$(
+                ".prod-buy-control> input"
+              ).val()}件</span>
+              <span class="newPrice topMoney">￥${res.goodsPrice}</span>
+              <p class="huabei-stages topHuaBei">或将低至￥${(
+                res.goodsPrice / 12
+              ).toFixed(2)}X/12期</p>
+
+              `
+      );
+      $("#choice>img").attr("src", res.goodsImg.substring(3));
+      // 选择数量
+      class ChoiceNum {
+        constructor(
+          subBtn,
+          input,
+          addBtn,
+          price,
+          goodsInfo,
+          color,
+          money,
+          topGoodsInfo
+        ) {
+          this.subBtn = subBtn;
+          this.value = 1;
+          this.addBtn = addBtn;
+          this.price = price;
+          this.goodsInfo = goodsInfo;
+          this.input = input;
+          this.color = color;
+          this.money = money;
+          this.topGoodsInfo = topGoodsInfo;
+          this.eventBind();
+        }
+        addNum() {
+          this.addBtn.click(() => {
+            this.value++;
+            this.changeHtml();
+            this.changeMoney();
+          });
+        }
+        subNum() {
+          this.subBtn.click(() => {
+            if (this.value > 1) {
+              this.value--;
+              this.changeHtml();
+              this.changeMoney();
+            }
+          });
+        }
+        // 花呗分期钱数变化事件
+        changeMoney() {
+          let totalMoney = this.changePrice();
+          this.money
+            .children("p")
+            .eq(0)
+            .html(`￥${(totalMoney / 3).toFixed(2)}X3期`);
+          this.money
+            .children("span")
+            .eq(0)
+            .html(`含手续费￥${(totalMoney * 0.023).toFixed(2)}/期`);
+          this.money
+            .children("p")
+            .eq(1)
+            .html(`￥${(totalMoney / 6).toFixed(2)}X6期`);
+          this.money
+            .children("span")
+            .eq(1)
+            .html(`含手续费￥${(totalMoney * 0.045).toFixed(2)}/期`);
+          this.money
+            .children("p")
+            .eq(2)
+            .html(`￥${(totalMoney / 12).toFixed(2)}X12期`);
+          this.money
+            .children("span")
+            .eq(2)
+            .html(`含手续费￥${(totalMoney * 0.075).toFixed(2)}/期`);
+          this.topGoodsInfo
+            .children("p")
+            .html(`或将低至￥${(totalMoney / 12).toFixed(2)}X/12期`);
+        }
+        //颜色点击事件
+        colorClick() {
+          let that = this;
+          for (let i = 0; i < this.color.length; i++) {
+            this.color.eq(i).click(function () {
+              that.goodsInfo.children("span").eq(1).html($(this).html());
+              that.topGoodsInfo.children("span").eq(1).html($(this).html());
+            });
+          }
+        }
+        // 花呗点击事件
+        moneyClick() {
+          let that = this;
+          for (let i = 0; i < this.money.length; i++) {
+            this.money.eq(i).click(function () {
+              // 判断用户是否取消了花呗支付
+              if ($(this).css("border-color") == "rgb(0, 140, 255)") {
+                switch (i) {
+                  case 0:
+                    that.goodsInfo.children("span").eq(2).html("花呗3期");
+                    that.topGoodsInfo.children("span").eq(2).html("花呗3期");
+                    break;
+                  case 1:
+                    that.goodsInfo.children("span").eq(2).html("花呗6期");
+                    that.topGoodsInfo.children("span").eq(2).html("花呗6期");
+                    break;
+                  case 2:
+                    that.goodsInfo.children("span").eq(2).html("花呗12期");
+                    that.topGoodsInfo.children("span").eq(2).html("花呗12期");
+                    break;
+                }
+              } else {
+                that.goodsInfo.children("span").eq(2).html("全款");
+                that.topGoodsInfo.children("span").eq(2).html("全款");
+              }
+            });
+          }
+        }
+        changeHtml() {
+          this.input.val(this.value);
+          this.price.html("￥" + this.changePrice());
+          this.topGoodsInfo
+            .children(".newPrice")
+            .html("￥" + this.changePrice());
+          this.goodsInfo
+            .children("span")
+            .eq(3)
+            .html(this.input.val() + "件");
+          this.topGoodsInfo
+            .children("span")
+            .eq(3)
+            .html(this.input.val() + "件");
+        }
+        changePrice() {
+          return res.goodsPrice * this.value;
+        }
+        eventBind() {
+          this.addNum();
+          this.subNum();
+          this.changePrice();
+          this.colorClick();
+          this.moneyClick();
+          this.colorClick();
+        }
+      }
+      // 传选择物品的数据
+      new ChoiceNum(
+        $(".sub"),
+        $(".prod-buy-control> input"),
+        $(".add"),
+        $(".newPrice").eq(1),
+        $(".choice"),
+        $(".goods-color"),
+        $(".prop"),
+        $("#choice .choice")
+      );
+      // 详情页图片
+      let datailImg = res.goodsInfoImg.split(" ");
+      for (let i = 0; i < datailImg.length; i++) {
+        $(`<img src='${datailImg[i]}' >`).appendTo("#goods-detail");
+      }
+
+      let username = localStorage.getItem("username");
+      // 加入购物车
+      $(".addcart").click(() => {
+        $("#cart p").html(
+          `
+          <img src="./img/common/loading.gif" alt="" />
+         正在为您添加到购物车！
+          `
+        );
+        $("#cart").show();
+
+        if (username !== null) {
+          $.ajax({
+            url: "./addShoppingCart.php",
+            method: "post",
+            data: {
+              vipName: username,
+              goodsId: res.goodsId,
+              goodsCount: parseInt($(".choice>._nums").html()),
+              goodsSelectColor: $(".choice>._color").html(),
+            },
+            success(res) {
+              addCart(res);
+            },
+          });
+          function addCart(res) {
+            console.log(res);
+            $("#cart p").html(
+              `
+          加入购物车成功！
+          `
+            );
+            $("#cart").show();
+          }
+        } else {
+          window.location.href = "./login.html";
+        }
+      });
+
+      // 立即购买
+      for (let i = 0; i < $(".goBuy").length; i++) {
+        $(".goBuy")
+          .eq(i)
+          .click(() => {
+            window.location.href =
+              "http://127.0.0.1/meizu/compute.html?goodsId=" +
+              id +
+              "&goodsCount=" +
+              $(".prod-buy-control input").val() +
+              "&goodsSelectColor=" +
+              $("._color").html();
+          });
+      }
+    }
+  });
+</script>

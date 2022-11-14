@@ -1,0 +1,51 @@
+{
+  "video": [
+    {
+      "id": 0,
+      "img": "../img/index/video/0.jpg",
+      "title": "魅族 18X",
+      "video": "../img/index/video/0.mp4"
+    },
+    {
+      "id": 1,
+      "img": "../img/index/video/1.jpg",
+      "title": "魅族 18 Pro",
+      "video": "../img/index/video/1.mp4"
+    },
+    {
+      "id": 2,
+      "img": "../img/index/video/2.jpg",
+      "title": "魅族 18",
+      "video": "../img/index/video/2.mp4"
+    },
+    {
+      "id": 3,
+      "img": "../img/index/video/3.jpg",
+      "title": "Lipro 智能家居",
+      "video": "../img/index/video/3.mp4"
+    },
+    {
+      "id": 4,
+      "img": "../img/index/video/4.jpg",
+      "title": "Flyme 9 功能视频"
+    },
+    {
+      "id": 5,
+      "img": "../img/index/video/5.jpg",
+      "title": "Flyme 8 概念视频",
+      "video": "../img/index/video/5.mp4"
+    },
+    {
+      "id": 6,
+      "img": "../img/index/video/6.jpg",
+      "title": "Aicy",
+      "video": "../img/index/video/6.mp4"
+    },
+    {
+      "id": 7,
+      "img": "../img/index/video/7.jpg",
+      "title": "安全家庭",
+      "video": "../img/index/video/7.mp4"
+    }
+  ]
+}

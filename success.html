@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>完成-魅族商城</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/success.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <script src="js/jQuery.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/cart.js"></script>
+  </head>
+
+  <body>
+    <div id="cart-header">
+      <div class="cart-header-container clear">
+        <div class="cart-header-logo">
+          <a href="index.html">
+            <img src="img/header/logo_b.png" alt="" />
+          </a>
+        </div>
+        <ul class="cart-header-flow">
+          <li>购物车</li>
+          <li>确认订单</li>
+          <li>在线支付</li>
+          <li class="cart-header-flow-active">完成</li>
+        </ul>
+        <ul class="cart-header-right">
+          <li><a href="#">我的订单</a></li>
+          <li>
+            <a href="login.html">登录</a>
+          </li>
+          <li><a href="register.html">注册</a></li>
+          <li class="logout">
+            <a href="javascript:;" class="cart-header-username"> </a>
+            <a href="javascript:;">地址管理</a>
+            <a href="javascript:;">我的收藏</a>
+            <a href="javascript:;">我的回购金</a>
+            <a href="javascript:;">问题反馈</a>
+            <a href="">退出登录</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="cart-success">
+      <div class="success-cont">
+        <div class="success-img">
+          <img src="img/success/success.webp" alt="" />
+        </div>
+        <div class="success-nav">
+          <div class="success-btn toIndex">返回首页</div>
+          <div class="success-btn toList">再转转</div>
+        </div>
+      </div>
+    </div>
+    <div id="page-footer"></div>
+  </body>
+</html>
+<script>
+  $(function () {
+    let username = localStorage.getItem("username");
+    // 判断用户名是否存在
+    $(".logout:last-child").click(() => {
+      localStorage.removeItem("username");
+    });
+
+    //判断用户是否是直接点击了立即购买
+    function getQueryStringChinese(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) return decodeURI(r[2]);
+      return null;
+    }
+    let goodsId = getQueryStringChinese("goodsId");
+    let count = getQueryStringChinese("goodsCount");
+    let selectColor = getQueryStringChinese("goodsSelectColor");
+    console.log(selectColor, goodsId, count);
+    if (username) {
+      $(".cart-header-right li").eq(1).hide();
+      $(".cart-header-right li").eq(2).hide();
+      $(".cart-header-right li").eq(0).show();
+      $(".cart-header-right li").eq(3).css({
+        display: "block",
+        display: "flex",
+      });
+      $(".cart-header-username").html("用户" + username + "的商城");
+      $(".cart-header-right li")
+        .eq(3)
+        .children("a")
+        .eq(0)
+        .show()
+        .siblings()
+        .hide();
+      $(".cart-header-right li")
+        .eq(3)
+        .children("a")
+        .eq(0)
+        .mouseenter(function () {
+          $(this).parent().addClass("user-list");
+          $(this).siblings().show();
+        });
+
+      $(".logout").on("mouseleave", function () {
+        $(this).removeClass("user-list");
+        $(this).children("a").eq(0).siblings().hide();
+      });
+    } else {
+      $(".cart-logout").show();
+      $(".cart-nothing").show();
+      $(".cart-header-right li").eq(1).show();
+      $(".cart-header-right li").eq(2).show();
+      $(".cart-header-right li").eq(0).hide();
+      $(".cart-header-right li").eq(3).hide();
+      window.location.href = "http://127.0.0.1/meizu/login.html";
+    }
+  });
+  $(".toIndex").click(() => {
+    window.location.href = "http://127.0.0.1/meizu/index.html";
+  });
+  $(".toList").click(() => {
+    window.location.href = "http://127.0.0.1/meizu/list.html?typeId=手机";
+  });
+</script>

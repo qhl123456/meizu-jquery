@@ -1,0 +1,216 @@
+{
+  "navphone": [
+    {
+      "id": "phone1",
+      "img": "../img/index/nav/phone/0.jpg",
+      "title": "魅族18X",
+      "price": 2599
+    },
+    {
+      "id": "phone2",
+      "img": "../img/index/nav/phone/1.jpg",
+      "title": "魅族18S",
+      "price": 3699
+    },
+    {
+      "id": "phone3",
+      "img": "../img/index/nav/phone/2.jpg",
+      "title": "魅族18S Pro",
+      "price": 4599
+    },
+    {
+      "id": "phone4",
+      "img": "../img/index/nav/phone/3.jpg",
+      "title": "魅族18",
+      "price": 3999
+    },
+    {
+      "id": "phone5",
+      "img": "../img/index/nav/phone/4.jpg",
+      "title": "魅族18 PRO",
+      "price": 4999
+    },
+    {
+      "id": "phone6",
+      "img": "../img/index/nav/phone/5.jpg",
+      "title": "魅族17",
+      "price": 3699
+    }
+  ],
+  "navlipro": [
+    {
+      "id": "lipro1",
+      "img": "../img/index/nav/lipro/0.jpg",
+      "title": "魅族 Lipro LED 橱柜灯",
+      "price": 169
+    },
+    {
+      "id": "lipro2",
+      "img": "../img/index/nav/lipro/1.jpg",
+      "title": "魅族 Lipro LED 智能吸顶灯",
+      "price": 499
+    },
+    {
+      "id": "lipro3",
+      "img": "../img/index/nav/lipro/2.jpg",
+      "title": "Lipro LED 射灯",
+      "price": 129
+    },
+    {
+      "id": "lipro4",
+      "img": "../img/index/nav/lipro/0.jpg",
+      "title": "魅族 Lipro LED 筒灯",
+      "price": 99
+    },
+    {
+      "id": "lipro5",
+      "img": "../img/index/nav/lipro/4.jpg",
+      "title": "Lipro LED 灯杯",
+      "price": 49
+    },
+    {
+      "id": "lipro6",
+      "img": "../img/index/nav/lipro/5.jpg",
+      "title": "Lipro LED 金属球泡",
+      "price": 79
+    },
+    {
+      "id": "lipro7",
+      "img": "../img/index/nav/lipro/6.jpg",
+      "title": "魅族 Lipro LED 灯泡",
+      "price": 44
+    },
+    {
+      "id": "lipro8",
+      "img": "../img/index/nav/lipro/7.jpg",
+      "title": "魅族 Lipro LED 地脚灯",
+      "price": 169
+    }
+  ],
+  "navpandaer": [
+    {
+      "id": "pandaer1",
+      "img": "../img/index/nav/pandaer/0.jpg",
+      "title": "PANDAER「重塑」钥匙扣",
+      "price": 49
+    },
+    {
+      "id": "pandaer2",
+      "img": "../img/index/nav/pandaer/1.jpg",
+      "title": "PANDAER「重塑」徽章",
+      "price": 39
+    },
+    {
+      "id": "pandaer3",
+      "img": "../img/index/nav/pandaer/2.jpg",
+      "title": "魅族 18 系列 PANDAER「重塑」手机壳",
+      "price": 69
+    },
+    {
+      "id": "pandaer4",
+      "img": "../img/index/nav/pandaer/3.jpg",
+      "title": "PANDAER「重塑」手办",
+      "price": 599
+    },
+    {
+      "id": "pandaer5",
+      "img": "../img/index/nav/pandaer/4.jpg",
+      "title": "PANDAER X SHARGE 闪极 118W 可视移动电源",
+      "price": 699
+    },
+    {
+      "id": "pandaer6",
+      "img": "../img/index/nav/pandaer/5.jpg",
+      "title": "PANDAER X IQUNIX 超触感透明机械键盘",
+      "price": 699
+    }
+  ],
+  "navparts": [
+    {
+      "id": "parts1",
+      "img": "../img/index/nav/parts/0.jpg",
+      "title": "魅族全智能手表",
+      "price": 1499
+    },
+    {
+      "id": "parts2",
+      "img": "../img/index/nav/parts/1.jpg",
+      "title": "魅族立式无线超充",
+      "price": 199
+    },
+    {
+      "id": "parts3",
+      "img": "../img/index/nav/parts/2.jpg",
+      "title": "魅族超充适配器 45W",
+      "price": 99
+    },
+    {
+      "id": "parts4",
+      "img": "../img/index/nav/parts/3.jpg",
+      "title": "PANDAER「龍」手机壳",
+      "price": 89
+    },
+    {
+      "id": "parts5",
+      "img": "../img/index/nav/parts/4.jpg",
+      "title": "PANDAER 侠意手机壳",
+      "price": 49
+    },
+    {
+      "id": "parts6",
+      "img": "../img/index/nav/parts/5.jpg",
+      "title": "PANDAER「果味特饮」手机壳",
+      "price": 49
+    },
+    {
+      "id": "parts7",
+      "img": "../img/index/nav/parts/6.jpg",
+      "title": "魅族 18 系列手机保护膜【3片装】",
+      "price": 39
+    },
+    {
+      "id": "parts8",
+      "img": "../img/index/nav/parts/7.jpg",
+      "title": "PANDAER PC 磨砂壳",
+      "price": 49
+    }
+  ],
+  "navvoice": [
+    {
+      "id": "voice1",
+      "img": "../img/index/nav/voice/0.jpg",
+      "title": "【新品】魅蓝 Blus 主动降噪耳机",
+      "price": 199
+    },
+    {
+      "id": "voice2",
+      "img": "../img/index/nav/voice/1.jpg",
+      "title": "【新品】魅蓝 HiFi 解码耳放",
+      "price": 79
+    },
+    {
+      "id": "voice3",
+      "img": "../img/index/nav/voice/2.jpg",
+      "title": "魅族 POP2s 真无线耳机",
+      "price": 199
+    },
+    {
+      "id": "voice4",
+      "img": "../img/index/nav/voice/3.jpg",
+      "title": "魅族 HD60 头戴式蓝牙耳机",
+      "price": 299
+    },
+    {
+      "id": "voice5",
+      "img": "../img/index/nav/voice/4.jpg",
+      "title": "魅族 HD60 降噪耳机",
+      "price": 799
+    },
+    {
+      "id": "voice6",
+      "img": "../img/index/nav/voice/5.jpg",
+      "title": "魅族 POP Pro 主动降噪耳机",
+      "price": 499
+    }
+  ]
+}

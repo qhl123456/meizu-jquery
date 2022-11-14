@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>魅族官网 - 魅族 18X 手机：为热爱，敢直白</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <script src="js/jQuery.js"></script>
+    <script src="js/index.js"></script>
+  </head>
+
+  <body>
+    <div id="page_index">
+      <!-- 头部区域 -->
+      <div id="header-wrap"></div>
+      <!-- 轮播图 -->
+      <div id="banner">
+        <ul class="banenr-ul">
+          <li class="banner-li"></li>
+          <li class="banner-li"></li>
+          <li class="banner-li"></li>
+          <li class="banner-li"></li>
+          <li class="banner-li"></li>
+          <li class="banner-li"></li>
+          <li class="banner-li"></li>
+          <li class="banner-li"></li>
+          <li class="banner-li"></li>
+        </ul>
+      </div>
+      <!--  链接区域-->
+      <div id="header-bot">
+        <div id="header-bot-cont">
+          <ul class="links"></ul>
+        </div>
+      </div>
+      <!-- 主要业务逻辑部分 -->
+      <div id="main">
+        <!-- 手机区域 -->
+        <div class="phone-box">
+          <div class="main-title">
+            <h3>手机</h3>
+          </div>
+          <!-- 大图 -->
+          <div class="main-bigImg">
+            <a href=""><img src="./img/index/phone/0.jpg" alt="" /></a>
+          </div>
+          <!-- 小图区域 -->
+          <div class="main-smallImg-total">
+            <div class="smallImg-total clear">
+              <ul class="goods-list">
+                <!-- 大图 -->
+                <li class="big"></li>
+                <li class="big big2"></li>
+                <li class="phone3 small"></li>
+                <li class="phone4 small"></li>
+                <li class="phone5 small"></li>
+                <li class="phone6 small"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- PANDAER部分 -->
+        <div class="content-box">
+          <div class="main-title">
+            <h3>PANDAER 奇趣探索</h3>
+          </div>
+          <!-- 大图 -->
+          <div class="main-bigImg">
+            <a href=""><img src="./img/index/pandaer/0.jpg" alt="" /></a>
+          </div>
+          <div class="main-smallImg-total">
+            <div class="smallImg-total clear">
+              <ul class="pandaer-list"></ul>
+            </div>
+          </div>
+        </div>
+        <!-- 魅族声学 -->
+        <div class="content-box">
+          <div class="main-title">
+            <h3>魅族声学</h3>
+          </div>
+          <!-- 大图 -->
+          <div class="main-bigImg">
+            <a href=""><img src="./img/index/voice/0.jpg" alt="" /></a>
+          </div>
+          <div class="main-smallImg-total">
+            <div class="smallImg-total clear">
+              <ul class="voice-list"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- lipro -->
+        <div class="content-box">
+          <div class="main-title">
+            <h3>Lipro 智能家居</h3>
+          </div>
+          <!-- 大图 -->
+          <div class="main-bigImg">
+            <a href=""><img src="./img/index/lipro/0.jpg" alt="" /></a>
+          </div>
+          <div class="main-smallImg-total">
+            <div class="smallImg-total clear">
+              <ul class="lipro-list"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 智能配件 -->
+        <div class="content-box">
+          <div class="main-title">
+            <h3>智能配件</h3>
+          </div>
+          <!-- 大图 -->
+          <div class="main-bigImg">
+            <a href=""><img src="./img/index/parts/0.jpg" alt="" /></a>
+          </div>
+          <div class="main-smallImg-total">
+            <div class="smallImg-total clear">
+              <ul class="parts-list"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 社区热帖 -->
+        <div class="content-box">
+          <div class="main-title">
+            <h3>社区热贴</h3>
+          </div>
+          <div class="main-smallImg-total">
+            <div class="smallImg-total clear">
+              <ul class="community-list"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flyme -->
+        <div class="content-box">
+          <div class="main-title">
+            <h3>Flyme</h3>
+          </div>
+          <div class="main-smallImg-total">
+            <div class="smallImg-total clear">
+              <ul class="flyme-list"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 视频区 -->
+        <div class="content-box">
+          <div class="main-title">
+            <h3>精彩视频</h3>
+          </div>
+          <div class="main-smallImg-total">
+            <div class="smallImg-total clear">
+              <ul class="video-list"></ul>
+            </div>
+          </div>
+        </div>
+        <!-- 视频 -->
+        <div class="video">
+          <div class="close"></div>
+          <video src="./img/index/video/0.mp4" autoplay muted controls></video>
+        </div>
+      </div>
+      <!-- 返回顶部 -->
+      <div class="aside">
+        <div class="message"></div>
+        <div class="backTop"></div>
+      </div>
+      <div id="page-footer"></div>
+    </div>
+  </body>
+</html>
+<script>
+  // 手机区域数据
+  $.ajax({
+    url: "./getGoodsList.php",
+    method: "get",
+    data: { typeId: "001" },
+    success(res) {
+      let data = JSON.parse(res);
+      getPhoneData(data);
+    },
+  });
+  function getPhoneData(data) {
+    for (let i = 0; i < 3; i++) {
+      let imgSrc = data[i].goodsImg.substring(3);
+      let divs = $("<div></div>").addClass("goods-box");
+      let li = $(".goods-list")
+        .children()
+        .eq(i - 1);
+      divs
+        .html(
+          `
+      <a href="./detail.html?goodsId=${data[i].goodsId}">
+                    <img src="${imgSrc}"/>
+                    <span class="goods-info">
+                      <span class="goods-name">${data[i].goodsName}</span>
+                      <span class="goods-desc">${data[i].goodsTitle}</span>
+                      <span class="goods-price">
+                        <i>￥${data[i].goodsPrice}起</i>
+                      </span>
+                    </span>
+                    <span class="product-sign">新品</span>
+                  </a>
+      `
+        )
+        .appendTo(li);
+    }
+    for (let i = 3; i < data.length; i++) {
+      let imgSrc = data[i].goodsImg.substring(3);
+      let divs = $("<div></div>").addClass("goods-box");
+      let li = $(".goods-list")
+        .children()
+        .eq(i - 1);
+      divs
+        .html(
+          `
+      <a href="./detail.html?goodsId=${data[i].goodsId}">
+                    <img src="${imgSrc}"/>
+                    <span class="goods-info">
+                      <span class="goods-name">${data[i].goodsName}</span>
+                      <span class="goods-desc">${data[i].goodsTitle}</span>
+                      <span class="goods-price">
+                        <i>￥${data[i].goodsPrice}起</i>
+                      </span>
+                    </span>
+                    <span class="product-sign">免息</span>
+                  </a>
+      `
+        )
+        .appendTo(li);
+    }
+  }
+
+  // pandaer区域数据
+  $.ajax({
+    url: "./getGoodsList.php",
+    method: "get",
+    data: { typeId: "002" },
+    success(res) {
+      let data = JSON.parse(res);
+      getPandaerData(data);
+    },
+  });
+  function getPandaerData(res) {
+    for (let i = 0; i < res.length; i++) {
+      let imgSrc = res[i].goodsImg.substring(3);
+      let lis = $("<li></li>").addClass("small");
+      let ul = $(".pandaer-list");
+      if (res[i].goodsOldPrice !== "") {
+        lis
+          .html(
+            `
+      <div class="goods-box ">
+      <a href="./detail.html?goodsId=${res[i].goodsId}">
+        <img src="${imgSrc}"  />
+        <span class="goods-info ">
+          <span class="goods-name">${res[i].goodsName}</span>
+          <span class="goods-desc">${res[i].goodsTitle}</span>
+          <span class="goods-price">
+            <i>￥${res[i].goodsPrice}</i>
+            <em></em>
+            <s>￥${res[i].goodsOldPrice}</s>
+          </span>
+        </span>
+      </a>
+    </div>
+      `
+          )
+          .appendTo(ul);
+      } else {
+        lis
+          .html(
+            `
+    <div class="goods-box ">
+    <a href="./detail.html?goodsId=${res[i].goodsId}">
+      <img src="${imgSrc}"  />
+      <span class="goods-info ">
+        <span class="goods-name">${res[i].goodsName}</span>
+        <span class="goods-desc">${res[i].goodsTitle}</span>
+        <span class="goods-price">
+          <i>￥${res[i].goodsPrice}</i>
+          <em></em>
+        </span>
+      </span>
+    </a>
+  </div>
+    `
+          )
+          .appendTo(ul);
+      }
+
+      if (i == 3 || i == 7 || i == 11) {
+        lis.addClass("last");
+      } else if (i == 0 || i == 4 || i == 8) {
+        lis.children().eq(0).addClass("goods-adv-box");
+      }
+      if (i == 0) {
+        lis.children().eq(3).addClass("box-adv-info");
+      }
+    }
+  }
+  // 声学区域数据
+  $.ajax({
+    url: "./getGoodsList.php",
+    method: "get",
+    data: { typeId: "003" },
+    success(res) {
+      let data = JSON.parse(res);
+      getVoiceData(data);
+    },
+  });
+  function getVoiceData(res) {
+    for (let i = 0; i < res.length; i++) {
+      let imgSrc = res[i].goodsImg.substring(3);
+      let lis = $("<li></li>").addClass("small");
+      let ul = $(".voice-list");
+      if (res[i].goodsOldPrice !== "") {
+        lis
+          .html(
+            `
+      <div class="goods-box">
+      <a href="./detail.html?goodsId=${res[i].goodsId}">
+        <img src="${imgSrc}"  />
+        <span class="goods-info ">
+          <span class="goods-name">${res[i].goodsName}</span>
+          <span class="goods-desc">${res[i].goodsName}</span>
+          <span class="goods-price">
+            <i>￥${res[i].goodsPrice}</i>
+            <em></em>
+            <s>￥${res[i].goodsOldPrice}</s>
+          </span>
+        </span>
+      </a>
+    </div>
+      `
+          )
+          .appendTo(ul);
+      } else {
+        lis
+          .html(
+            `
+    <div class="goods-box ">
+    <a href="./detail.html?goodsId=${res[i].goodsId}">
+      <img src="${imgSrc}"  />
+      <span class="goods-info ">
+        <span class="goods-name">${res[i].goodsName}</span>
+        <span class="goods-desc">${res[i].goodsName}</span>
+        <span class="goods-price">
+          <i>￥${res[i].goodsPrice}</i>
+          <em></em>
+        </span>
+      </span>
+    </a>
+  </div>
+    `
+          )
+          .appendTo(ul);
+      }
+
+      if (i == 3 || i == 7 || i == 11) {
+        lis.addClass("last");
+      } else if (i == 0 || i == 4 || i == 7) {
+        lis.children().eq(0).addClass("goods-adv-box");
+      }
+      if (i == 0) {
+        lis.children().eq(3).addClass("box-adv-info");
+      }
+    }
+  }
+
+  // lipro区域数据
+  $.ajax({
+    url: "./getGoodsList.php",
+    method: "get",
+    data: { typeId: "004" },
+    success(res) {
+      let data = JSON.parse(res);
+      getLiproData(data);
+    },
+  });
+  function getLiproData(res) {
+    for (let i = 0; i < res.length; i++) {
+      let imgSrc = res[i].goodsImg.substring(3);
+      let lis = $("<li></li>").addClass("small");
+      let ul = $(".lipro-list");
+      if (res[i].goodsOldPrice !== "") {
+        lis
+          .html(
+            `
+      <div class="goods-box ">
+      <a href="./detail.html?goodsId=${res[i].goodsId}">
+        <img src="${imgSrc}"  />
+        <span class="goods-info ">
+          <span class="goods-name">${res[i].goodsName}</span>
+          <span class="goods-desc">${res[i].goodsTitle}</span>
+          <span class="goods-price">
+            <i>￥${res[i].goodsPrice}</i>
+            <em></em>
+            <s>￥${res[i].goodsOldPrice}</s>
+          </span>
+        </span>
+      </a>
+    </div>
+      `
+          )
+          .appendTo(ul);
+      } else {
+        lis
+          .html(
+            `
+    <div class="goods-box ">
+    <a href="./detail.html?goodsId=${res[i].goodsId}">
+      <img src="${imgSrc}"  />
+      <span class="goods-info ">
+        <span class="goods-name">${res[i].goodsName}</span>
+        <span class="goods-desc">${res[i].goodsTitle}</span>
+        <span class="goods-price">
+          <i>￥${res[i].goodsPrice}</i>
+          <em></em>
+        </span>
+      </span>
+    </a>
+  </div>
+    `
+          )
+          .appendTo(ul);
+      }
+
+      if (i == 3 || i == 7 || i == 11 || i == 15) {
+        lis.addClass("last");
+      } else if (i == 0 || i == 4 || i == 8 || i == 12) {
+        lis.children().eq(0).addClass("goods-adv-box");
+      }
+      if (i == 0) {
+        lis.children().eq(3).addClass("box-adv-info");
+      }
+    }
+  }
+
+  // 智能配件区域数据
+  $.ajax({
+    url: "./getGoodsList.php",
+    method: "get",
+    data: { typeId: "005" },
+    success(res) {
+      let data = JSON.parse(res);
+      getPartsData(data);
+    },
+  });
+  function getPartsData(res) {
+    for (let i = 0; i < res.length; i++) {
+      let imgSrc = res[i].goodsImg.substring(3);
+      let lis = $("<li></li>").addClass("small");
+      let ul = $(".parts-list");
+      if (res[i].goodsOldPrice !== "") {
+        lis
+          .html(
+            `
+      <div class="goods-box ">
+      <a href="./detail.html?goodsId=${res[i].goodsId}">
+        <img src="${imgSrc}"  />
+        <span class="goods-info ">
+          <span class="goods-name">${res[i].goodsName}</span>
+          <span class="goods-desc">${res[i].goodsTitle}</span>
+          <span class="goods-price">
+            <i>￥${res[i].goodsPrice}</i>
+            <em></em>
+            <s>￥${res[i].goodsOldPrice}</s>
+          </span>
+        </span>
+      </a>
+    </div>
+      `
+          )
+          .appendTo(ul);
+      } else {
+        lis
+          .html(
+            `
+    <div class="goods-box ">
+    <a href="./detail.html?goodsId=${res[i].goodsId}">
+      <img src="${imgSrc}"  />
+      <span class="goods-info ">
+        <span class="goods-name">${res[i].goodsName}</span>
+        <span class="goods-desc">${res[i].goodsTitle}</span>
+        <span class="goods-price">
+          <i>￥${res[i].goodsPrice}</i>
+          <em></em>
+        </span>
+      </span>
+    </a>
+  </div>
+    `
+          )
+          .appendTo(ul);
+      }
+
+      if (i == 3 || i == 7 || i == 11) {
+        lis.addClass("last");
+      } else if (i == 0 || i == 4 || i == 8) {
+        lis.children().eq(0).addClass("goods-adv-box");
+      }
+      if (i == 0) {
+        lis.children().eq(3).addClass("box-adv-info");
+      }
+    }
+  }
+
+  // 社区热帖数据
+  $.ajax({
+    url: "./getGoodsList.php",
+    method: "get",
+    data: { typeId: "006" },
+    success(res) {
+      let data = JSON.parse(res);
+      getCommunityData(data);
+    },
+  });
+  function getCommunityData(res) {
+    for (let i = 0; i < res.length; i++) {
+      let imgSrc = res[i].goodsImg.substring(3);
+      let userImgSrc = res[i].goodsInfoImg.substring(3);
+      let lis = $("<li></li>").addClass("small");
+      let ul = $(".community-list");
+      lis
+        .html(
+          `
+        <div class="community-box">
+        <a href="./community.html?goodsId=${res[i].goodsId}">
+          <img src="${imgSrc}" />
+          <div class="user-info">
+            <div>
+              <img src="${userImgSrc}" alt="" />
+              <p class="user-name">${res[i].goodsName}</p>
+            </div>
+
+            <p class="user-title">${res[i].goodsTitle}</p>
+            <p class="user-desc">${res[i].goodsColor}</p>
+          </div>
+        </a>
+      </div>
+      `
+        )
+        .appendTo(ul);
+    }
+  }
+  $(function () {
+    $(window).scroll(function () {
+      if (
+        $(".phone-box").offset().top <
+        $(document.body).height() + $(document).scrollTop()
+      ) {
+        $(".aside").fadeIn();
+      } else {
+        $(".aside").fadeOut();
+      }
+    });
+    // 返回顶部
+    $(".backTop").click(() => {
+      $("body,html").animate({ scrollTop: 0 }, 600);
+    });
+  });
+</script>

@@ -1,0 +1,217 @@
+<link rel="stylesheet" href="./css/header.css" />
+<header>
+  <div id="header-wrap">
+    <!-- 下拉列表 -->
+    <div id="bg-show">
+      <div id="header-sub-warp">
+        <!-- 手机部分 -->
+        <div class="header-sub">
+          <ul class="phone"></ul>
+        </div>
+        <!-- lipro部分 -->
+        <div class="header-sub">
+          <ul class="lipro"></ul>
+        </div>
+        <!-- 声学部分 -->
+        <div class="header-sub">
+          <ul class="voice"></ul>
+        </div>
+        <!-- 配件部分 -->
+        <div class="header-sub">
+          <ul class="parts"></ul>
+        </div>
+        <!-- PANDAER部分 -->
+        <div class="header-sub">
+          <ul class="pandaer"></ul>
+        </div>
+        <!-- APP部分 -->
+        <div class="header-sub-download header-sub">
+          <div class="sub-download-content">
+            <img src="img/header/AppDownload.jpg" alt="" />
+            <a href=""></a>
+            <a href=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="header-content" class="clear">
+      <!-- logo区域 -->
+      <div id="header-logo">
+        <a href="./index.html"><img id="logo" src="./img/header/logo_w.png" alt="" /></a>
+      </div>
+      <!-- 导航区域 -->
+      <div id="header-nav">
+        <ul>
+          <li><a href="">手机</a></li>
+          <li><a href="">Lipro</a></li>
+          <li><a href="">声学</a></li>
+          <li><a href="">配件</a></li>
+          <li><a href="">PANDAER</a></li>
+          <li><a href="">Flyme</a></li>
+          <li><a href="">服务</a></li>
+          <li><a href="">社区</a></li>
+          <li><a href="">企业服务</a></li>
+          <li><a href="">APP下载</a></li>
+        </ul>
+      </div>
+      <!-- 搜索区域 -->
+      <div id="header-search">
+        <input type="text" name="" placeholder="魅族 18" class="searchGoods"/>
+        <a href="" class="searchgoods"><img src="img/header/search.jpg" /></a>
+      </div>
+      <!-- 用户登陆区域 -->
+      <div id="header-user">
+        <a href=""><span class="iconfont">&#xe6a7;</span></a>
+        <a href=""
+          ><span class="iconfont">&#xe636;</span><em class="goodsNum">0</em></a
+        >
+        <div class="header-user-info">
+          <ul>
+            <li><a href="login.html">立即登录</a></li>
+            <li><a href="">个人中心</a></li>
+            <li><a href="register.html">立即注册</a></li>
+            <li><a href="">我的订单</a></li>
+            <li><a href="javascript:;">M码通道</a></li>
+            <li><a href="">退出登录</a></li>
+          </ul>
+        </div>
+        <div class="header-user-cart ">
+          <div class="header-user-cart-cont ">
+            <img src="img/header/login.jpg" />
+            <p>登录后可显示<br />您账号中已加入的商品哦~</p>
+            <h5 class="showGoods">最近加入的商品</h5>
+            <div id="Goods">
+         
+            </div>
+              <div class="goodsCart">
+                <h5 class="goodsTotalNum">共 <i></i> 件商品(0件失效)</h5>
+                <a href="cart.html" class="toCart">去购物车</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="./js/header.js"></script>
+<script>
+  function Init() {
+    let username = localStorage.getItem("username");
+    console.log(username);
+    if (username) {
+      $(".header-user-info ul li:eq(0)").addClass("loggedOut");
+      $(".header-user-info ul li:eq(2)").addClass("loggedOut");
+      $(".header-user-info ul li:eq(1)").removeClass("loggedIn");
+      $(".header-user-info ul li:eq(1)").addClass("loggedIn");
+      $(".header-user-info ul li:eq(5)").removeClass("loggedIn");
+      $(".header-user-info ul li:eq(5)").addClass("loggedIn");
+      $(".header-user-cart-cont >img").attr("src", "./img/header/login1.png");
+      $(".header-user-cart-cont >p").html(
+        `您的购物车中还没有商品  <br/> 赶紧去选购吧~`
+      );
+      $.ajax({
+        url: "./getShoppingCart.php",
+        method: "get",
+        data: { vipName: username },
+        success(res) {
+          getGoodsData(JSON.parse(res));
+        },
+      });
+      function getGoodsData(res) {
+        console.log(res);
+        $(".goodsNum").html(res.length);
+        if (res.length !== 0) {
+          $(".header-user-cart-cont >img").hide();
+          $(".header-user-cart-cont >p").hide();
+          let sum = 0
+         for(let i =0;i<res.length;i++){
+           let imgSrc = res[i].goodsImg.substring(3)
+          
+          let divs = $('<div></div>').addClass('goodsDetail').appendTo($('#Goods'))
+          divs.html(`
+          <img src="${imgSrc}" />
+                <h5 class="goodsname">${res[i].goodsName}</h5>
+                <h5 class="goodsinfo">${res[i].goodsSelectColor}</h5>
+                <h5 class= 'delete'>删除</h5>
+                <h5 class="goodsprice">￥${res[i].goodsPrice}</h5>
+                <h5 class="goodsnum">X${res[i].goodsCount}</h5>
+          `)
+          if(i==0){
+            divs.eq(0).css({
+              borderTop:'none'
+            })
+          }
+          sum+=$('.goodsDetail').eq(i).height()
+         }
+         // 计算购物车总物品的数量，高度和为父元素的高度
+         $('#Goods').height(sum)
+         // 用父元素的高度加上展示文字的高度为整体高度
+         let totalHeight = sum+$('.showGoods').height()
+         $('.header-user-cart-cont').height(totalHeight)
+         $('.goodsTotalNum>i').html(res.length)
+        }else{
+          $(".header-user-cart-cont >img").show();
+          $(".header-user-cart-cont >p").show();
+          $('.showGoods').hide()
+          $('#Goods').hide()
+          $('.goodsCart').hide()
+        }
+
+        // 删除商品
+        for(let i =0;i<res.length;i++){
+          $('.goodsDetail').eq(i).mouseenter(function(){
+            $(this).children('.delete').show()
+          })
+          $('.goodsDetail').eq(i).mouseleave(function(){
+            $(this).children('.delete').hide()
+          })
+          $('.delete').eq(i).click(()=>{
+        deleteGoods(res[i].goodsId)
+      })
+    }
+    function deleteGoods(id){
+      $.ajax({
+        url:'./deleteGoods.php',
+        method:'get',
+        data:{vipName:username,goodsId:id},
+        success(res){
+          delGoods(res)
+        }
+      })
+      function delGoods(res){
+        if(res ==1 ){
+          location.reload();
+        }
+      }
+    }
+      }
+    } else {
+      $('.showGoods').hide()
+      $('.goodsCart').hide()
+      $(".header-user-info ul li:eq(0)").removeClass("loggedOut");
+      $(".header-user-info ul li:eq(0)").addClass("loggedIn");
+      $(".header-user-info ul li:eq(2)").removeClass("loggedOut");
+      $(".header-user-info ul li:eq(2)").addClass("loggedIn");
+      $(".header-user-info ul li:eq(1)").addClass("loggedOut");
+      $(".header-user-info ul li:eq(5)").addClass("loggedOut");
+      $(".header-user-cart-cont img").attr("src", "./img/header/login.jpg");
+      $(".header-user-cart-cont p").html(
+        `登录后可显示<br />您账号中已加入的商品哦~`
+      );
+    }
+  }
+  $(function () {
+    Init();
+    $(".header-user-info ul li:eq(5)").click(() => {
+      localStorage.removeItem("username");
+      Init();
+    });
+    // 搜索 ./list.html?typeId=$('.searchGoods').val()
+    $('.searchgoods').click(function(){
+        $(this).attr('href',`./list.html?typeId=${$('.searchGoods').val()}`)
+    })
+  });
+ 
+</script>

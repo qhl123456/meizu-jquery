@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.43.2"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>手机-魅族官网</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/list.css" />
+    <script src="js/jQuery.js"></script>
+    <script src="js/index.js"></script>
+  </head>
+
+  <body>
+    <div id="header-wrap" style="z-index: 3"></div>
+
+    <div id="main">
+      <div id="list-container">
+        <h1 class="list-title">
+          <div class="title-info"></div>
+          <div class="title-select">
+            <div class="title-select-cont">
+              <a href="#">推荐</a>
+              <a href="#">新品</a>
+              <a href="#">价格</a>
+            </div>
+          </div>
+        </h1>
+        <!-- 商品列表 -->
+        <div class="goods-list">
+          <ul class="goods-list-ul"></ul>
+        </div>
+        <div class="notFound">
+          <div class="img"><img src="./img/cart/notLogin.png" alt="" /></div>
+          <h4 class="notfound"></h4>
+          <p>建议您尝试其他关键字</p>
+        </div>
+        <!-- 轮播图 -->
+        <div class="list-rec">
+          <h2 class="list-title">
+            <div class="title-info">为您推荐</div>
+          </h2>
+
+          <div class="list-rec-banner">
+            <div class="list-rec-banner-view">
+              <!-- 推荐列表 -->
+              <ul class="list-rec-banner-wrap"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 轮播图小球 -->
+      <div class="list-rec-banner-dot">
+        <ul>
+          <li class="list-rec-banner-dot-visited"></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+    <div id="page-footer"></div>
+  </body>
+</html>
+<script src="js/list.js"></script>
+<script>
+  $("#page-footer").load("footer.html");
+  $(function () {
+    function GetQueryString(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      var l = decodeURI(window.location.search);
+      var r = l.substr(1).match(reg);
+      if (r != null) return unescape(r[2]);
+      return null;
+    }
+    let typeId = null;
+    $(".title-info").html(`全部结果>${GetQueryString("typeId")}`);
+    switch (GetQueryString("typeId")) {
+      case "魅族":
+      case "meizu":
+      case "meizu18":
+      case "华为":
+      case "小米":
+      case "苹果":
+      case "手机":
+      case "魅族18":
+      case "魅族18sPro":
+      case "魅族18s":
+      case "魅族18pro":
+      case "魅族17pro":
+      case "魅族17":
+        typeId = "001";
+        $(".notFound").hide();
+        $(".list-rec").hide();
+        $(".list-rec-banner-dot").hide();
+        $.ajax({
+          url: "./getGoodsListNew.php",
+          method: "get",
+          data: { typeId, count: 9 },
+          success(res) {
+            getPhoneData(JSON.parse(res));
+          },
+        });
+        function getPhoneData(res) {
+          console.log(res);
+          for (let i = 0; i < res.length; i++) {
+            let imgSrc = res[i].goodsImg.substring(3);
+            let lis = $("<li></li>").addClass("gl-item");
+            lis
+              .html(
+                `
+              <a href="./detail.html?goodsId=${res[i].goodsId}" class="gl-item-link">
+                <img src="${imgSrc}"/>
+                
+                <h3 class="item-title">${res[i].goodsName}</h3>
+                <p class="item-desc">${res[i].goodsDesc}</p>
+                <p class="item-price">
+                  <em>￥${res[i].goodsPrice}</em>
+                </p>
+              </a>
+              `
+              )
+              .appendTo(".goods-list-ul");
+          }
+        }
+        break;
+      case "pandaer":
+      case "PANDAER 奇趣探索":
+      case "PANDAER":
+      case "奇趣探索":
+      case "T恤":
+      case "起源":
+      case "臂章BUFF":
+      case "重塑":
+      case "机械键盘":
+      case "可移动电源":
+      case "奇趣探索":
+      case "探索":
+      case "奇趣":
+        typeId = "002";
+        $(".notFound").hide();
+        $(".list-rec").hide();
+        $(".list-rec-banner-dot").hide();
+        $.ajax({
+          url: "./getGoodsListNew.php",
+          method: "get",
+          data: { typeId, count: 9 },
+          success(res) {
+            getPandaerData(JSON.parse(res));
+          },
+        });
+        function getPandaerData(res) {
+          $(".list-rec").hide();
+          $(".list-rec-banner-dot").hide();
+          for (let i = 0; i < res.length; i++) {
+            let imgSrc = res[i].goodsImg.substring(3);
+            let lis = $("<li></li>").addClass("gl-item");
+            lis
+              .html(
+                `
+              <a href="./detail.html?goodsId=${res[i].goodsId}" class="gl-item-link">
+                <img src="${imgSrc}"/>
+                
+                <h3 class="item-title">${res[i].goodsName}</h3>
+                <p class="item-desc">${res[i].goodsDesc}</p>
+                <p class="item-price">
+                  <em>￥${res[i].goodsPrice}</em>
+                </p>
+              </a>
+              `
+              )
+              .appendTo(".goods-list-ul");
+          }
+        }
+        break;
+      case "魅族声学":
+      case "erji":
+      case "耳机":
+      case "声音":
+      case "HIFI":
+      case "HD60":
+      case "降噪":
+      case "无线耳机":
+      case "降噪耳机":
+      case "蓝牙":
+      case "蓝牙耳机":
+        typeId = "003";
+        $(".notFound").hide();
+        $(".list-rec").hide();
+        $(".list-rec-banner-dot").hide();
+        $.ajax({
+          url: "./getGoodsListNew.php",
+          method: "get",
+          data: { typeId, count: 9 },
+          success(res) {
+            getVoiceData(JSON.parse(res));
+          },
+        });
+        function getVoiceData(res) {
+          $(".list-rec").hide();
+          $(".list-rec-banner-dot").hide();
+          for (let i = 0; i < res.length; i++) {
+            let imgSrc = res[i].goodsImg.substring(3);
+            let lis = $("<li></li>").addClass("gl-item");
+            lis
+              .html(
+                `
+              <a href="./detail.html?goodsId=${res[i].goodsId}" class="gl-item-link">
+                <img src="${imgSrc}"/>
+               
+                <h3 class="item-title">${res[i].goodsName}</h3>
+                <p class="item-desc">${res[i].goodsDesc}</p>
+                <p class="item-price">
+                  <em>￥${res[i].goodsPrice}</em>
+                </p>
+              </a>
+              `
+              )
+              .appendTo(".goods-list-ul");
+          }
+        }
+        break;
+      case "Lipro 智能家居":
+      case "lipro ":
+      case "LIPRO 智能家居":
+      case "智能家居":
+      case "家居":
+      case "智能":
+      case "家电":
+      case "感应灯":
+      case "灯":
+      case "LED":
+        typeId = "004";
+        $(".notFound").hide();
+        $(".list-rec").hide();
+        $(".list-rec-banner-dot").hide();
+        $.ajax({
+          url: "./getGoodsListNew.php",
+          method: "get",
+          data: { typeId, count: 9 },
+          success(res) {
+            getLiproData(JSON.parse(res));
+          },
+        });
+        function getLiproData(res) {
+          $(".list-rec").hide();
+          $(".list-rec-banner-dot").hide();
+          for (let i = 0; i < res.length; i++) {
+            let imgSrc = res[i].goodsImg.substring(3);
+            let lis = $("<li></li>").addClass("gl-item");
+            lis
+              .html(
+                `
+              <a href="./detail.html?goodsId=${res[i].goodsId}" class="gl-item-link">
+                <img src="${imgSrc}"/>
+               
+                <h3 class="item-title">${res[i].goodsName}</h3>
+                <p class="item-desc">${res[i].goodsDesc}</p>
+                <p class="item-price">
+                  <em>￥${res[i].goodsPrice}</em>
+                </p>
+              </a>
+              `
+              )
+              .appendTo(".goods-list-ul");
+          }
+        }
+        break;
+      case "周边配件":
+      case "周边":
+      case "配件":
+      case "parts":
+      case "PARTS":
+      case "手机壳":
+      case "无线充":
+      case "硅胶壳":
+      case "快充线":
+      case "手表":
+      case "充电":
+        typeId = "005";
+        $(".notFound").hide();
+        $(".list-rec").hide();
+        $(".list-rec-banner-dot").hide();
+        $.ajax({
+          url: "./getGoodsListNew.php",
+          method: "get",
+          data: { typeId, count: 9 },
+          success(res) {
+            getPartsData(JSON.parse(res));
+          },
+        });
+        function getPartsData(res) {
+          $(".list-rec").hide();
+          $(".list-rec-banner-dot").hide();
+          for (let i = 0; i < res.length; i++) {
+            let imgSrc = res[i].goodsImg.substring(3);
+            let lis = $("<li></li>").addClass("gl-item");
+            lis
+              .html(
+                `
+              <a href="./detail.html?goodsId=${res[i].goodsId}" class="gl-item-link">
+                <img src="${imgSrc}"/>
+                
+                <h3 class="item-title">${res[i].goodsName}</h3>
+                <p class="item-desc">${res[i].goodsDesc}</p>
+                <p class="item-price">
+                  <em>￥${res[i].goodsPrice}</em>
+                </p>
+              </a>
+              `
+              )
+              .appendTo(".goods-list-ul");
+          }
+        }
+        break;
+      default:
+        $(".notFound").show();
+        $(".list-rec").show();
+        $(".list-rec-banner-dot").show();
+        $(".title-info").eq(1).html("为你推荐");
+        $(".notfound").html(`没有找到"${GetQueryString("typeId")}"相关产品`);
+    }
+
+    // 推荐数据
+    let arr = ["phone", "lipro", "pandaer", "parts", "voice"];
+    // 随机生成推荐数据，可能会重复，因为基数小
+    for (let i = 0; i < 9; i++) {
+      let goodsType = arr[Math.floor(Math.random() * arr.length)];
+      let id = Math.ceil(Math.random() * 6);
+      let goodsId = goodsType + id;
+      $.ajax({
+        url: "./getGoodsInfo.php",
+        method: "get",
+        data: { goodsId },
+        success(res) {
+          getRecommedData(JSON.parse(res));
+        },
+      });
+      function getRecommedData(res) {
+        console.log(res);
+        let lis = $("<li></li>");
+        lis
+          .html(
+            `
+            <a href="./detail.html?goodsId=${res.goodsId}">
+        <div class="rec-pic">
+                    <img src="${res.goodsImg.substring(3)}" alt="" />
+                  </div>
+                  <div class="rec-desc">
+                    <h4>${res.goodsName}</h4>
+                    <p class="item-price">
+                      <em>￥</em>
+                      <span>${res.goodsPrice}</span>
+                    </p>
+                  </div>
+                </a>
+        `
+          )
+          .appendTo($(".list-rec-banner-wrap"));
+      }
+    }
+  });
+</script>
